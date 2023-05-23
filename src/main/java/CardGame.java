@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+import java.util.Comparator;
+import java.util.Random;
 public class CardGame {
+    Random random = new Random();
 
     int [] values = {2,3,4,5,6,7,8,9,10,11,12,13,14};
     String [] symbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
@@ -40,11 +42,28 @@ public class CardGame {
 
     ArrayList <Card> sortDeckInNumberOrder() {
 
-        Collections.sort(deckOfCards);
-        System.out.println(deckOfCards);
+
+        Collections.sort(deckOfCards, (a, b) -> a.getValue() - b.getValue());
+
+
         return deckOfCards;
     }
 
+    ArrayList <Card> sortDeckIntoSuits() {
+
+        Collections.sort(deckOfCards);
+        System.out.println(deckOfCards);
+        return deckOfCards;
+
+    }
+
+
+    ArrayList<Card> shuffleDeck() {
+
+        Collections.shuffle(deckOfCards);
+
+        return deckOfCards;
+    }
 
 
 
