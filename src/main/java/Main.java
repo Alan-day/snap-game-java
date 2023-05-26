@@ -37,35 +37,37 @@ public class Main {
 
 //        Boolean win = false;
 
+        int i=0;
+        System.out.println("Welcome to snap game");
+
         while (true) {
-
-            System.out.println("Welcome to snap game");
-
-            System.out.println(dealtCardsUser);
-            System.out.println(dealtCardsComputer);;
+            String userString = scanner.nextLine();
 
 
-            String userString = scanner.next();
-            char userCharacter = userString.toUpperCase().charAt(0);
+//            char userCharacter = userString.toUpperCase().charAt(0);
+            System.out.println(userString);
+            if (userString.isEmpty()) {
 
-            if (userCharacter == 'D') {
-                int i=0;
                 dealtCardsComputer.add(snap.dealCard(shuffledCards));
                 dealtCardsUser.add(snap.dealCard(shuffledCards));
-                System.out.println(dealtCardsComputer);
-                System.out.println(dealtCardsUser);
+
+                System.out.println("Computer deck" + dealtCardsComputer);
+                System.out.println("User deck" + dealtCardsUser);
 
 
                     if (dealtCardsComputer.get(i).getValue() == dealtCardsUser.get(i).getValue()) {
                         System.out.println("snap!");
                         break;
+
+                    } else if (dealtCardsComputer.get(i).getValue() == dealtCardsUser.get(i-1).getValue()) {
+                        System.out.println("snap!");
+                        break;
+
                     } else {
                         i++;
                     }
 
 
-
-                System.out.println(userString);
 
 
             }
