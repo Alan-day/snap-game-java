@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-public class CardGame {
+public abstract class CardGame {
     Random random = new Random();
 
     int [] values = {2,3,4,5,6,7,8,9,10,11,12,13,14};
-    String [] symbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+    String [] symbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
    static ArrayList<Card> deckOfCards = new ArrayList<>(52);
     ArrayList<Character> suits = new ArrayList<>(List.of('\u2660', '\u2666', '\u2663', '\u2764'));
 
@@ -29,7 +29,7 @@ public class CardGame {
         this.deckOfCards = deckOfCards;
     }
 
-    public void getDeckOfCards() {
+    public void getDeckOfCards() { /// allows for displaying all cards
 
         for (Card card : deckOfCards) {
             System.out.println(card.toString());
