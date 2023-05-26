@@ -23,42 +23,35 @@ public class Main {
 
 
 
-        int i=0;
+
         System.out.println("Welcome to snap game");
+        int r = 1;
 
         while (true) {
             String userString = scanner.nextLine();
             System.out.println(userString);
 
-            if (!dealtCardsComputer.isEmpty() && !dealtCardsUser.isEmpty()) {
-
-            }
-            else if (!dealtCardsComputer.isEmpty()){
-                dealtCardsComputer.remove(0);
-            }
-            else {
+            if (dealtCardsComputer.isEmpty()) {
                 dealtCardsComputer.add(snap.dealCard(shuffledCards));
+
+            } else if (!dealtCardsComputer.isEmpty() && ((r % 2) == 0)) {
+                dealtCardsComputer.set(0, snap.dealCard(shuffledCards));  // Update the first element in the computer's deck
             }
 
-
-
-            System.out.println("Computer deck: " + dealtCardsComputer);
-            System.out.println("User deck: " + dealtCardsUser);
+            System.out.println("Computer card " + dealtCardsComputer);
+            System.out.println("User card " + dealtCardsUser);
 
             if (!dealtCardsUser.isEmpty() && !dealtCardsComputer.isEmpty() && dealtCardsComputer.get(0).getValue() == dealtCardsUser.get(0).getValue()) {
                 System.out.println("Snap!");
                 break;
             }
+            r++;
 
-            if (!dealtCardsUser.isEmpty()) {
-                dealtCardsUser.remove(0);
-            } else {
-
+            if (dealtCardsUser.isEmpty()) {
                 dealtCardsUser.add(snap.dealCard(shuffledCards));
+            } else if (!dealtCardsUser.isEmpty() && ((r % 2) == 1)) {
+                dealtCardsUser.set(0, snap.dealCard(shuffledCards));  // Update the first element in the user's deck
             }
-
-
-
         }
 
 
