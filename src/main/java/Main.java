@@ -16,72 +16,59 @@ public class Main {
     static ArrayList<Card> dealtCardsUser = new ArrayList<>();
 
 
-//    public static void compareCards() {
-//
-//        for (int i = 0; i < deckOfCards.size(); i++) {
-//            if (dealtCardsComputer.get(i).getValue() == dealtCardsUser.get(i).getValue()) {
-//                System.out.println("snap!");
-//
-//            }
-//
-//        }
-//
-//
-//    }
-
-
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-//        Boolean win = false;
+
 
         int i=0;
         System.out.println("Welcome to snap game");
 
         while (true) {
             String userString = scanner.nextLine();
-
-
-//            char userCharacter = userString.toUpperCase().charAt(0);
             System.out.println(userString);
-            if (userString.isEmpty()) {
 
+            if (!dealtCardsComputer.isEmpty() && !dealtCardsUser.isEmpty()) {
+
+            }
+            else if (!dealtCardsComputer.isEmpty()){
+                dealtCardsComputer.remove(0);
+            }
+            else {
                 dealtCardsComputer.add(snap.dealCard(shuffledCards));
+            }
+
+
+
+            System.out.println("Computer deck: " + dealtCardsComputer);
+            System.out.println("User deck: " + dealtCardsUser);
+
+            if (!dealtCardsUser.isEmpty() && !dealtCardsComputer.isEmpty() && dealtCardsComputer.get(0).getValue() == dealtCardsUser.get(0).getValue()) {
+                System.out.println("Snap!");
+                break;
+            }
+
+            if (!dealtCardsUser.isEmpty()) {
+                dealtCardsUser.remove(0);
+            } else {
+
                 dealtCardsUser.add(snap.dealCard(shuffledCards));
-
-                System.out.println("Computer deck" + dealtCardsComputer);
-                System.out.println("User deck" + dealtCardsUser);
-
-
-                    if (dealtCardsComputer.get(i).getValue() == dealtCardsUser.get(i).getValue()) {
-                        System.out.println("snap!");
-                        break;
-
-                    } else if (dealtCardsComputer.get(i).getValue() == dealtCardsUser.get(i-1).getValue()) {
-                        System.out.println("snap!");
-                        break;
-
-                    } else {
-                        i++;
-                    }
-
-
-
-
             }
-            else
-
-            {
-                System.out.println("try again");
-            }
-        }
-
 
 
 
         }
+
+
+            }
+
+
+        }
+
+
+
 
 
 
@@ -111,5 +98,5 @@ public class Main {
 //
 //        }
 
-    }
+
 

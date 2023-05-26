@@ -16,7 +16,7 @@ public class CardGame {
             for (int j = 0; j < symbols.length; j++) {
                 Card currentCard = new Card(suits.get(i),symbols[j],values[j]);
                 deckOfCards.add(currentCard);
-                System.out.println(currentCard.toString());
+
 
             }
         }
